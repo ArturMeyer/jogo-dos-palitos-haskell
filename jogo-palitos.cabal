@@ -25,7 +25,9 @@ source-repository head
 
 library
   exposed-modules:
+      GameLogic
       Lib
+      Utils
   other-modules:
       Paths_jogo_palitos
   autogen-modules:
