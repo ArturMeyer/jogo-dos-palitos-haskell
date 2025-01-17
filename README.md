@@ -24,3 +24,24 @@ Primeiro, clone o repositório para o seu ambiente local:
 ```bash
 git clone https://github.com/ArturMeyer/jogo-dos-palitos-haskell.git
 cd <DIRETORIO_DO_PROJETO>
+```
+
+### 2 Instalando as Dependências
+```bash
+stack setup
+```
+
+### 3 Construindo o Projeto
+```bash
+stack build
+```
+
+### 3 Executando jogo
+```bash
+stack run
+```
+ou
+```bash
+stack ghci
+main
+```

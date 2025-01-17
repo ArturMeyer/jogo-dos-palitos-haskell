@@ -1,6 +1,6 @@
 -- Artur Welerson Sott Meyer - 202065552C
 
-import GameLogic  -- Importa os construtores de Escolha e as funções de jogo
+import GameLogic
 import Utils
 
 import System.Random (newStdGen)
@@ -10,33 +10,33 @@ import Control.Monad.State
 main :: IO ()
 main = do
     putStrLn "Jogo dos Palitos"
-    escolha <- escolherDificuldade -- Pede para o usuário escolher a dificuldade
-    g <- newStdGen  -- Pega o gerador de números aleatórios
-    let estadoInicial = evalState (inicializarJogo escolha) g  -- Inicializa o estado do jogo
+    escolha <- escolherDificuldade 
+    g <- newStdGen
+    let estadoInicial = evalState (inicializarJogo escolha) g  
     case escolha of
         Facil -> do
-            print estadoInicial  -- Mostra o estado inicial do jogo
+            print estadoInicial
             imprimirPalitinhos (fst estadoInicial)
             putStrLn "Iniciando o Jogo dos Palitos - Fácil"
-            evalStateT jogoFacil estadoInicial  -- Executa o jogo fácil
+            evalStateT jogoFacil estadoInicial 
             main
         Dificil -> do 
-            print estadoInicial  -- Mostra o estado inicial do jogo
+            print estadoInicial 
             imprimirPalitinhos (fst estadoInicial)
             putStrLn "Iniciando o Jogo dos Palitos - Difícil"
-            evalStateT jogoDificil estadoInicial  -- Executa o jogo difícil
+            evalStateT jogoDificil estadoInicial 
             main
         Dificil_Ajuda -> do 
-            print estadoInicial  -- Mostra o estado inicial do jogo
+            print estadoInicial 
             imprimirPalitinhos (fst estadoInicial)
             putStrLn "Iniciando o Jogo dos Palitos - Difícil_Ajuda"
-            evalStateT jogoDificil estadoInicial  -- Executa o jogo difícil
+            evalStateT jogoDificil estadoInicial 
             main
         MvsM -> do
-            print estadoInicial  -- Mostra o estado inicial do jogo
+            print estadoInicial
             imprimirPalitinhos (fst estadoInicial)
             putStrLn "Iniciando o Jogo dos Palitos - Duelo de máquinas"
-            evalStateT jogoMaquinaContraMaquina estadoInicial  -- Executa o jogo difícil
+            evalStateT jogoMaquinaContraMaquina estadoInicial 
             main
         Sair -> do 
             putStrLn "Até mais!"
