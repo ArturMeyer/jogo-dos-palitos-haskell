@@ -45,7 +45,7 @@ imprimirPalitinhos filas =
 gerarListaAleatoriaState :: State StdGen [Int]
 gerarListaAleatoriaState = do
     g <- get
-    let (num, g') = randomR (2, 5) g
+    let (num, g') = randomR (2, 1000) g
     let lista = take num $ filter odd (randomRs (1, 7) g')
     put g'
     return lista
@@ -57,9 +57,9 @@ calculaXorSom = foldl xor 0
 escolherDificuldade :: IO Escolha
 escolherDificuldade = do
     putStrLn "Escolha a dificuldade (Facil/Dificil/Dificil_Ajuda/MvsM/Sair):"
-    dificuldade <- getLine  -- Lê a escolha do usuário
+    dificuldade <- getLine  
     case readMaybe dificuldade :: Maybe Escolha of
-        Just d  -> return d  -- Se a conversão for bem-sucedida, retorna a dificuldade
+        Just d  -> return d 
         Nothing -> do
-            putStrLn "Entrada inválida. Tente novamente."  -- Se a conversão falhar, solicita nova entrada
-            escolherDificuldade  -- Repete o processo
+            putStrLn "Entrada inválida. Tente novamente." 
+            escolherDificuldade 
